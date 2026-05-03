@@ -1,7 +1,7 @@
 {
   "name": "lambda-crop",
   "version": "1.0.0",
-  "description": "Recorte circular de imágenes",
+  "description": "Recorte de imágenes",
   "main": "index.mjs",
   "type": "module",
   "dependencies": {
