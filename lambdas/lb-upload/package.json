@@ -1,7 +1,7 @@
 {
   "name": "lambda-upload",
   "version": "1.0.0",
-  "description": "Función para recibir imágenes y subirlas a S3",
+  "description": "Función que recibe imágenes y las sube a S3",
   "main": "index.mjs",
   "type": "module",
   "dependencies": {
