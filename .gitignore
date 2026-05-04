@@ -1,0 +1,36 @@
+# --- Terraform ---
+# Local state files (contain sensitive account data)
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*
+
+# Terraform initialization directory (contains provider binaries)
+.terraform/
+
+# Variable files with sensitive data (where you store secrets)
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI configuration and credentials
+.terraformrc
+terraform.rc
+
+# --- AWS & Environment ---
+# Local AWS credentials (if copied by mistake)
+.aws/
+credentials
+.env
+.env.*
+
+# --- System & Log Files ---
+.DS_Store
+Thumbs.db
+*.log
+
+# --- Task-Specific Files ---
+# Do not commit evidence PDF to code repository (submitted separately)
+*.pdf
