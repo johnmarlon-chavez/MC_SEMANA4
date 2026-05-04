@@ -1,12 +1,12 @@
-const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
-const Busboy = require("busboy");
-const { v4: uuidv4 } = require("uuid");
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import Busboy from "busboy";
+import { v4 as uuidv4 } from "uuid";
 
 const s3 = new S3Client({ region: "us-east-1" });
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/gif", "image/webp"];
 const MAX_SIZE = 10 * 1024 * 1024;
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
   try {
     const contentType = event.headers?.["content-type"] || event.headers?.["Content-Type"] || "";
     let fileBuffer, fileName, mimeType;
