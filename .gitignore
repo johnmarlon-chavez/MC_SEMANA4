@@ -1,36 +1,62 @@
-# --- Terraform ---
-# Local state files (contain sensitive account data)
+# ============================================
+# Terraform State & Configuration
+# ============================================
+# Archivos de estado local 
 *.tfstate
 *.tfstate.*
 crash.log
 crash.*
 
-# Terraform initialization directory (contains provider binaries)
+# Directorio de inicialización de Terraform 
 .terraform/
 
-# Variable files with sensitive data (where you store secrets)
+# Archivos de variables con secretos 
 *.tfvars.json
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
 
-# Terraform CLI configuration and credentials
+# Configuración local de Terraform CLI
 .terraformrc
 terraform.rc
 
-# --- AWS & Environment ---
-# Local AWS credentials (if copied by mistake)
+# ============================================
+# AWS & Entorno
+# ============================================
+# Credenciales y configuraciones locales de AWS
 .aws/
 credentials
 .env
 .env.*
 
-# --- System & Log Files ---
+# ============================================
+# Dependencias y Build
+# ============================================
+# Node.js dependencies 
+lambdas/*/node_modules/
+lambdas/*/package-lock.json
+
+# Lambda deployment packages 
+terraform/*.zip
+*.zip
+
+# ============================================
+# Archivos del Sistema y Logs
+# ============================================
 .DS_Store
 Thumbs.db
 *.log
+npm-debug.log*
 
-# --- Task-Specific Files ---
-# Do not commit evidence PDF to code repository (submitted separately)
+# ============================================
+# Evidencia y Documentación
+# ============================================
+# Evidencia fotográfica (PDF) - se entrega por separado
 *.pdf
+
+# Archivos temporales de editores
+*.swp
+*.swo
+.vscode/
+.idea/
