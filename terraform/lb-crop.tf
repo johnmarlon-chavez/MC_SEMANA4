@@ -15,11 +15,6 @@ resource "aws_lambda_function" "crop" {
   filename         = data.archive_file.crop_zip.output_path
   source_code_hash = data.archive_file.crop_zip.output_base64sha256
 
-  vpc_config {
-    subnet_ids         = [aws_subnet.private_a.id, aws_subnet.private_b.id]
-    security_group_ids = [aws_vpc.main.default_security_group_id]
-  }
-
   environment {
     variables = {
       S3_BUCKET        = aws_s3_bucket.images.id

@@ -15,12 +15,6 @@ resource "aws_lambda_function" "upload" {
   filename      = data.archive_file.upload_zip.output_path
   source_code_hash = data.archive_file.upload_zip.output_base64sha256
 
-  # Configuración de VPC
-  vpc_config {
-    subnet_ids         = [aws_subnet.private_a.id, aws_subnet.private_b.id]
-    security_group_ids = [aws_vpc.main.default_security_group_id]
-  }
-
   environment {
     variables = {
       S3_BUCKET     = aws_s3_bucket.images.id
