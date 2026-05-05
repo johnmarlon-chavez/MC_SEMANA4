@@ -68,10 +68,10 @@ terraform init
 
 ### Entornos
 
-#### Desarrollo (DEV)
+#### DEV
 ```bash
 cd terraform
-terraform workspace select dev || terraform workspace new dev
+terraform workspace new dev
 terraform plan -var-file="dev.tfvars"
 terraform apply -var-file="dev.tfvars"
 ```
@@ -79,15 +79,15 @@ terraform apply -var-file="dev.tfvars"
 #### QA
 ```bash
 cd terraform
-terraform workspace select qa || terraform workspace new qa
+terraform workspace new qa
 terraform plan -var-file="qa.tfvars"
 terraform apply -var-file="qa.tfvars"
 ```
 
-#### Producción (PROD)
+#### PROD
 ```bash
 cd terraform
-terraform workspace select prod || terraform workspace new prod
+terraform workspace new prod
 terraform plan -var-file="prod.tfvars"
 terraform apply -var-file="prod.tfvars"
 ```
@@ -178,46 +178,6 @@ terraform destroy -var-file="dev.tfvars" -auto-approve
 ```
 
 **Nota:** Repetir para qa y prod cambiando el archivo de variables.
-
-## Observabilidad
-
-### Logging
-- **CloudWatch Groups:**
-  - `/aws/lambda/upload-lambda-{env}`
-  - `/aws/lambda/crop-lambda-{env}`
-  - `/aws/apigateway/image-processor-{env}`
-
-### Metrics
-- Invocaciones Lambda
-- Errores y timeout
-- Duración promedio
-- Tamaño payload S3
-
-### Trazas
-- JSON estructurado en logs Lambda
-- Contexto: requestId, key, bucket
-
-## Seguridad
-
-### Credenciales
-- No incluir credenciales AWS en código fuente
-- Usar variables de entorno o perfiles IAM
-- Rotación regular de access keys
-
-### Tags Obligatorios
-Todos los recursos incluyen:
-- `Project: ImageProcessor`
-- `Environment: {dev|qa|prod}`
-- `Owner: MarlonChavez`
-
-### Políticas de Seguridad
-- Bucket S3 con bloqueo de acceso público
-- VPC endpoints para conectividad privada
-- IAM roles con mínimo privilegio
-- Lifecycle policies para eliminación automática
-- Encriptación server-side (S3) habilitada
-
----
 
 ## Política de Costo Cero
 
